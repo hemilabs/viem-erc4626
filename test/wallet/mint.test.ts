@@ -73,8 +73,8 @@ describe("mint", function () {
     expect(writeContract).toHaveBeenCalledWith(client, {
       abi: expect.anything(),
       account: client.account,
-      address: zeroAddress,
-      args: [BigInt(1000), zeroAddress],
+      address: validParameters.address,
+      args: [validParameters.shares, validParameters.receiver],
       chain: client.chain,
       functionName: "mint",
     });

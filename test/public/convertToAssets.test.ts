@@ -53,7 +53,7 @@ describe("convertToAssets", function () {
 
     expect(readContract).toHaveBeenCalledWith(client, {
       abi: expect.anything(),
-      address: zeroAddress,
+      address: validParameters.address,
       args: [validParameters.shares],
       functionName: "convertToAssets",
     });

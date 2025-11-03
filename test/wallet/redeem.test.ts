@@ -82,7 +82,7 @@ describe("redeem", function () {
     expect(writeContract).toHaveBeenCalledWith(client, {
       abi: expect.anything(),
       account: client.account,
-      address: zeroAddress,
+      address: validParameters.address,
       args: [
         validParameters.shares,
         validParameters.receiver,
