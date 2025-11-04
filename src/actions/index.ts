@@ -1,13 +1,12 @@
 // erc-4626 is an extension of erc-20, so we re-export all erc-20 actions
 export {
-  // TODO update names - see https://github.com/hemilabs/viem-erc20/issues/7
-  approveErc20Token as approve,
-  getErc20TokenAllowance as allowance,
-  getErc20TokenBalance as balanceOf,
-  getErc20TokenDecimals as decimals,
-  getErc20TokenName as name,
-  getErc20TokenSymbol as symbol,
-  getErc20TokenTotalSupply as totalSupply,
+  approve,
+  allowance,
+  balanceOf,
+  decimals,
+  name,
+  symbol,
+  totalSupply,
 } from "viem-erc20/actions";
 
 export { asset } from "../public/asset.js";

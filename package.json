@@ -53,12 +53,12 @@
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
     "viem": "^2.38.5",
-    "viem-erc20": "^1.1.0",
+    "viem-erc20": "^2.0.0",
     "vitest": "^4.0.6"
   },
   "peerDependencies": {
     "viem": "^2.x",
-    "viem-erc20": "^1.x"
+    "viem-erc20": "^2.x"
   },
   "type": "module",
   "exports": {
