@@ -1,6 +1,6 @@
 import { configDefaults, defineConfig } from "vitest/config";
 
-const isCI = process.env.CI === "true";
+const isCI = process.env.CI?.toLowerCase() === "true";
 
 export default defineConfig({
   test: {
