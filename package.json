@@ -26,7 +26,7 @@
   ],
   "repository": "hemilabs/viem-erc4626",
   "scripts": {
-    "build": "npm run clean && npm run build:esm && npm run build:types",
+    "build": "pnpm run clean && pnpm run build:esm && pnpm run build:types",
     "build:esm": "tsc --noEmit false --outDir ./_esm --sourceMap",
     "build:types": "tsc --noEmit false --declarationDir ./_types --emitDeclarationOnly --declaration --declarationMap",
     "clean": "rm -rf ./_esm ./_types",
@@ -35,7 +35,7 @@
     "format:write": "prettier --write .",
     "lint": "eslint --cache .",
     "prepare": "husky",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "test": "vitest run",
     "test:e2e": "CI=true vitest run test/e2e",
     "tsc": "tsc --noEmit"
@@ -62,6 +62,10 @@
     "viem": "^2.x",
     "viem-erc20": "^2.x"
   },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "packageManager": "pnpm@11.5.2",
   "type": "module",
   "exports": {
     ".": {
