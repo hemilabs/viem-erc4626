@@ -50,7 +50,7 @@
     "eslint": "^8.57.1",
     "eslint-config-bloq": "^4.7.0",
     "husky": "^9.1.7",
-    "knip": "^5.66.4",
+    "knip": "^6.15.0",
     "lint-staged": "^16.2.6",
     "prettier": "^3.6.2",
     "typescript": "^5.9.3",
