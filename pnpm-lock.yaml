@@ -11,8 +11,8 @@ importers:
         specifier: ^20.1.0
         version: 20.5.3(@types/node@25.9.1)(conventional-commits-parser@6.4.0)(typescript@5.9.3)
       "@hemilabs/anvil-fork-setup":
-        specifier: ^1.0.1
-        version: 1.0.1(vitest@4.1.8(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0)))
+        specifier: ^2.0.0
+        version: 2.0.0(vitest@4.1.8(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0)))
       "@tsconfig/node22":
         specifier: ^22.0.2
         version: 22.0.5
@@ -410,15 +410,18 @@ packages:
       }
     engines: { node: ^12.22.0 || ^14.17.0 || >=16.0.0 }
 
-  "@hemilabs/anvil-fork-setup@1.0.1":
+  "@hemilabs/anvil-fork-setup@2.0.0":
     resolution:
       {
-        integrity: sha512-nDKcZAfE5zwethmUxzm85119CtDz0lGsWfV9aVp46UbyquJrJXlwD1ccwmpl19+z/ZKm0rovd7JzIVjfLQgOhQ==,
-        tarball: https://registry.npmjs.org/@hemilabs/anvil-fork-setup/-/anvil-fork-setup-1.0.1.tgz,
+        integrity: sha512-zgYiJIsHEnuPw/soowX0nma7NhfX7SsxTFyxF0yl0shO8pI/YJXHeKtkVJX1S0f62P2HsXelQ/4Cz6bWfqS7+A==,
+        tarball: https://registry.npmjs.org/@hemilabs/anvil-fork-setup/-/anvil-fork-setup-2.0.0.tgz,
       }
     engines: { node: ">=20" }
     peerDependencies:
       vitest: ">=4"
+    peerDependenciesMeta:
+      vitest:
+        optional: true
 
   "@humanwhocodes/config-array@0.13.0":
     resolution:
@@ -5550,8 +5553,8 @@ snapshots:
 
   "@eslint/js@8.57.1": {}
 
-  "@hemilabs/anvil-fork-setup@1.0.1(vitest@4.1.8(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0)))":
-    dependencies:
+  "@hemilabs/anvil-fork-setup@2.0.0(vitest@4.1.8(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0)))":
+    optionalDependencies:
       vitest: 4.1.8(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0))
 
   "@humanwhocodes/config-array@0.13.0":
