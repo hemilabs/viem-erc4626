@@ -21,8 +21,9 @@
     "name": "Gonzalo D'Elia"
   },
   "files": [
-    "!test/*",
-    "*"
+    "_esm",
+    "_types",
+    "src/**/*.ts"
   ],
   "repository": "hemilabs/viem-erc4626",
   "scripts": {
