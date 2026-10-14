@@ -50,8 +50,8 @@ importers:
         specifier: ^2.38.5
         version: 2.52.0(typescript@5.9.3)(zod@4.4.3)
       viem-erc20:
-        specifier: ^2.0.0
-        version: 2.1.0(viem@2.52.0(typescript@5.9.3)(zod@4.4.3))
+        specifier: ^2.2.1
+        version: 2.2.1(viem@2.52.0(typescript@5.9.3)(zod@4.4.3))
       vitest:
         specifier: ^5.0.3
         version: 5.0.3(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0))
@@ -5159,13 +5159,13 @@ packages:
       }
     engines: { node: ^18.17.0 || >=20.5.0 }
 
-  viem-erc20@2.1.0:
+  viem-erc20@2.2.1:
     resolution:
       {
-        integrity: sha512-nKm8FP0PHxVCtr6UTxBS8j3uJA+dVXzsIWMZsPfQNojuS93nJ8V3i/gS0OQM0pByHPNUFvlI/thjylS9F8EtDQ==,
-        tarball: https://registry.npmjs.org/viem-erc20/-/viem-erc20-2.1.0.tgz,
+        integrity: sha512-cj6s0NAB5bXp/hqtUoLjkcjKp1zqkyJcCw5Lmd2XWHMh5QgZUokKKdzpmGMnS7y0J4Ln7SbpXh3JpR6eC5gHiQ==,
+        tarball: https://registry.npmjs.org/viem-erc20/-/viem-erc20-2.2.1.tgz,
       }
-    engines: { node: ">=20" }
+    engines: { node: ^20.19.0 || >=22.12.0 }
     peerDependencies:
       viem: ^2.x
 
@@ -8347,7 +8347,7 @@ snapshots:
 
   validate-npm-package-name@6.0.2: {}
 
-  viem-erc20@2.1.0(viem@2.52.0(typescript@5.9.3)(zod@4.4.3)):
+  viem-erc20@2.2.1(viem@2.52.0(typescript@5.9.3)(zod@4.4.3)):
     dependencies:
       viem: 2.52.0(typescript@5.9.3)(zod@4.4.3)
 
@@ -8371,7 +8371,7 @@ snapshots:
   vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.0):
     dependencies:
       lightningcss: 1.32.0
-      picomatch: 4.0.4
+      picomatch: 4.0.7
       postcss: 8.5.15
       rolldown: 1.0.3
       tinyglobby: 0.2.17
