@@ -13,9 +13,9 @@ importers:
       "@hemilabs/anvil-fork-setup":
         specifier: ^2.0.0
         version: 2.0.0(vitest@5.0.3(@types/node@25.9.1)(vite@8.0.16(@types/node@25.9.1)(jiti@2.7.0)(yaml@2.9.1)))
-      "@tsconfig/node22":
-        specifier: ^22.0.2
-        version: 22.0.5
+      "@tsconfig/node24":
+        specifier: ^24.0.5
+        version: 24.0.5
       better-sort-github-actions:
         specifier: ^1.0.0
         version: 1.0.0
@@ -1208,11 +1208,11 @@ packages:
       }
     engines: { node: ">=18" }
 
-  "@tsconfig/node22@22.0.5":
+  "@tsconfig/node24@24.0.5":
     resolution:
       {
-        integrity: sha512-hLf2ld+sYN/BtOJjHUWOk568dvjFQkHnLNa6zce25GIH+vxKfvTgm3qpaH6ToF5tu/NN0IH66s+Bb5wElHrLcw==,
-        tarball: https://registry.npmjs.org/@tsconfig/node22/-/node22-22.0.5.tgz,
+        integrity: sha512-DWC54fGPuhZgg3Ighg4Y/A/bA3ZdB5hnzAuv/MkQ/X85sVsBsMQxu8t7khutdYeiNksBbFdDyeqv1HSW2Zl8aA==,
+        tarball: https://registry.npmjs.org/@tsconfig/node24/-/node24-24.0.5.tgz,
       }
 
   "@tybys/wasm-util@0.10.2":
@@ -5944,7 +5944,7 @@ snapshots:
 
   "@simple-libs/stream-utils@1.2.0": {}
 
-  "@tsconfig/node22@22.0.5": {}
+  "@tsconfig/node24@24.0.5": {}
 
   "@tybys/wasm-util@0.10.2":
     dependencies:
