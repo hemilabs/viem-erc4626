@@ -1,21 +1,19 @@
-import { type Address, Client, erc4626Abi, isAddress } from "viem";
+import {
+  type Address,
+  Client,
+  encodeFunctionData,
+  erc4626Abi,
+  isAddress,
+} from "viem";
 import { writeContract } from "viem/actions";
 
-export const deposit = async function (
-  client: Client,
-  parameters: {
-    address: Address;
-    assets: bigint;
-    receiver: Address;
-  },
-) {
-  const { address, assets, receiver } = parameters;
-  if (!client.account) {
-    throw new Error("Client is missing an account");
-  }
-  if (!isAddress(address)) {
-    throw new Error("Invalid address");
-  }
+type DepositParams = {
+  assets: bigint;
+  receiver: Address;
+};
+
+const assertDepositParams = function (parameters: DepositParams) {
+  const { assets, receiver } = parameters;
   if (typeof assets !== "bigint") {
     throw new Error("Invalid assets");
   }
@@ -25,6 +23,20 @@ export const deposit = async function (
   if (assets <= BigInt(0)) {
     throw new Error("Invalid assets, must be greater than 0");
   }
+};
+
+export const deposit = async function (
+  client: Client,
+  parameters: DepositParams & { address: Address },
+) {
+  const { address, assets, receiver } = parameters;
+  if (!client.account) {
+    throw new Error("Client is missing an account");
+  }
+  if (!isAddress(address)) {
+    throw new Error("Invalid address");
+  }
+  assertDepositParams({ assets, receiver });
 
   return writeContract(client, {
     abi: erc4626Abi,
@@ -32,6 +44,17 @@ export const deposit = async function (
     address,
     args: [assets, receiver],
     chain: client.chain,
+    functionName: "deposit",
+  });
+};
+
+export const encodeDepositData = function (parameters: DepositParams) {
+  const { assets, receiver } = parameters ?? {};
+  assertDepositParams({ assets, receiver });
+
+  return encodeFunctionData({
+    abi: erc4626Abi,
+    args: [assets, receiver],
     functionName: "deposit",
   });
 };

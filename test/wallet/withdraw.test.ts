@@ -1,10 +1,10 @@
-import { zeroAddress } from "viem";
+import { decodeFunctionData, erc4626Abi, isHex, zeroAddress } from "viem";
 import { WalletClient } from "viem";
 import { writeContract } from "viem/actions";
 import { hemiSepolia } from "viem/chains";
 import { describe, it, expect, vi } from "vitest";
 
-import { withdraw } from "../../src/wallet/withdraw";
+import { encodeWithdrawData, withdraw } from "../../src/wallet/withdraw";
 
 vi.mock("viem/actions", () => ({
   writeContract: vi.fn(),
@@ -94,5 +94,68 @@ describe("withdraw", function () {
       functionName: "withdraw",
     });
     expect(result).toEqual({ success: true });
+  });
+});
+
+describe("encodeWithdrawData", function () {
+  const validEncodeParameters = {
+    assets: BigInt(1000),
+    owner: zeroAddress,
+    receiver: zeroAddress,
+  };
+
+  it("should throw an error if assets is not a bigint", function () {
+    const parameters = { ...validEncodeParameters, assets: 1000 };
+
+    // @ts-expect-error - Testing invalid assets type
+    expect(() => encodeWithdrawData(parameters)).toThrow("Invalid assets");
+  });
+
+  it("should throw an error if the receiver address is not valid", function () {
+    const parameters = {
+      ...validEncodeParameters,
+      receiver: "invalid_receiver",
+    };
+
+    // @ts-expect-error - Testing invalid receiver address
+    expect(() => encodeWithdrawData(parameters)).toThrow(
+      "Invalid receiver address",
+    );
+  });
+
+  it("should throw an error if the owner address is not valid", function () {
+    const parameters = { ...validEncodeParameters, owner: "invalid_owner" };
+
+    // @ts-expect-error - Testing invalid owner address
+    expect(() => encodeWithdrawData(parameters)).toThrow(
+      "Invalid owner address",
+    );
+  });
+
+  it("should throw an error if assets is less than or equal to 0", function () {
+    const parameters = { ...validEncodeParameters, assets: BigInt(0) };
+
+    expect(() => encodeWithdrawData(parameters)).toThrow(
+      "Invalid assets, must be greater than 0",
+    );
+  });
+
+  it("should throw an error if the parameters are not defined", function () {
+    // @ts-expect-error - Testing undefined parameters
+    expect(() => encodeWithdrawData(undefined)).toThrow("Invalid assets");
+  });
+
+  it("should return the encoded call data if all parameters are valid", function () {
+    const data = encodeWithdrawData(validEncodeParameters);
+
+    expect(isHex(data)).toBe(true);
+    expect(decodeFunctionData({ abi: erc4626Abi, data })).toEqual({
+      args: [
+        validEncodeParameters.assets,
+        validEncodeParameters.receiver,
+        validEncodeParameters.owner,
+      ],
+      functionName: "withdraw",
+    });
   });
 });

@@ -196,6 +196,50 @@ const hash = await deposit(client, {
 });
 ```
 
+### `encodeDepositData`
+
+Returns the ABI-encoded call data for a [deposit](https://eips.ethereum.org/EIPS/eip-4626#deposit) without sending a transaction. Useful for batching, multicall, or building a transaction manually.
+
+```ts
+encodeDepositData({ assets, receiver });
+```
+
+- **assets**: `bigint` — Amount of assets to deposit (required, must be > 0)
+- **receiver**: `Address` — Address to receive the vault shares (required)
+
+**Example:**
+
+```ts
+import { encodeDepositData } from "viem-erc4626/actions";
+const data = encodeDepositData({
+  assets: BigInt("1000000000000000000"), // 1 asset
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+});
+```
+
+### `encodeWithdrawData`
+
+Returns the ABI-encoded call data for a [withdraw](https://eips.ethereum.org/EIPS/eip-4626#withdraw) without sending a transaction. Useful for batching, multicall, or building a transaction manually.
+
+```ts
+encodeWithdrawData({ assets, receiver, owner });
+```
+
+- **assets**: `bigint` — Amount of assets to withdraw (required, must be > 0)
+- **receiver**: `Address` — Address to receive the underlying assets (required)
+- **owner**: `Address` — Address that owns the vault shares (required)
+
+**Example:**
+
+```ts
+import { encodeWithdrawData } from "viem-erc4626/actions";
+const data = encodeWithdrawData({
+  assets: BigInt("1000000000000000000"), // 1 asset
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  owner: "0x1234567891234567891234567891234567891234",
+});
+```
+
 ### `maxDeposit`
 
 Returns the maximum amount of the underlying asset that can be deposited into the vault for the receiver. [View docs](https://eips.ethereum.org/EIPS/eip-4626#maxdeposit)
