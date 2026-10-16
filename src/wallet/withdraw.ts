@@ -40,7 +40,7 @@ export const withdraw = async function (
   if (!isAddress(address)) {
     throw new Error("Invalid address");
   }
-  assertWithdrawParams({ assets, owner, receiver });
+  assertWithdrawParams(parameters);
 
   return writeContract(client, {
     abi: erc4626Abi,

@@ -36,7 +36,7 @@ export const deposit = async function (
   if (!isAddress(address)) {
     throw new Error("Invalid address");
   }
-  assertDepositParams({ assets, receiver });
+  assertDepositParams(parameters);
 
   return writeContract(client, {
     abi: erc4626Abi,
