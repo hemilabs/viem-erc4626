@@ -36,8 +36,8 @@ allowance(client, { address, owner, spender });
 ```ts
 import { allowance } from "viem-erc4626/actions";
 const allowanceAmount = await allowance(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
   spender: "0x1234567891234567891234567891234567891234",
 });
 ```
@@ -60,8 +60,8 @@ approve(client, { address, spender, amount });
 ```ts
 import { approve } from "viem-erc4626/actions";
 const hash = await approve(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  spender: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  spender: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
   amount: BigInt("1000000000000000000"), // 1 token
 });
 ```
@@ -82,7 +82,7 @@ asset(client, { address });
 ```ts
 import { asset } from "viem-erc4626/actions";
 const assetAddress = await asset(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -103,8 +103,8 @@ balanceOf(client, { address, account });
 ```ts
 import { balance } from "viem-erc4626/actions";
 const tokenBalance = await balanceOf(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  account: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  account: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -125,7 +125,7 @@ convertToAssets(client, { address, shares });
 ```ts
 import { convertToAssets } from "viem-erc4626/actions";
 const assetAmount = await convertToAssets(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   shares: BigInt("1000000000000000000"), // 1 share
 });
 ```
@@ -147,7 +147,7 @@ convertToShares(client, { address, assets });
 ```ts
 import { convertToShares } from "viem-erc4626/actions";
 const shareAmount = await convertToShares(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   assets: BigInt("1000000000000000000"), // 1 asset
 });
 ```
@@ -168,7 +168,7 @@ decimals(client, { address });
 ```ts
 import { decimals } from "viem-erc4626/actions";
 const tokenDecimals = await decimals(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -190,9 +190,9 @@ deposit(client, { address, assets, receiver });
 ```ts
 import { deposit } from "viem-erc4626/actions";
 const hash = await deposit(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   assets: BigInt("1000000000000000000"), // 1 asset
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -213,7 +213,7 @@ encodeDepositData({ assets, receiver });
 import { encodeDepositData } from "viem-erc4626/actions";
 const data = encodeDepositData({
   assets: BigInt("1000000000000000000"), // 1 asset
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -235,7 +235,7 @@ encodeWithdrawData({ assets, receiver, owner });
 import { encodeWithdrawData } from "viem-erc4626/actions";
 const data = encodeWithdrawData({
   assets: BigInt("1000000000000000000"), // 1 asset
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
   owner: "0x1234567891234567891234567891234567891234",
 });
 ```
@@ -257,8 +257,8 @@ maxDeposit(client, { address, receiver });
 ```ts
 import { maxDeposit } from "viem-erc4626/actions";
 const maxDepositAmount = await maxDeposit(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -279,8 +279,8 @@ maxMint(client, { address, receiver });
 ```ts
 import { maxMint } from "viem-erc4626/actions";
 const maxMintAmount = await maxMint(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -301,8 +301,8 @@ maxRedeem(client, { address, owner });
 ```ts
 import { maxRedeem } from "viem-erc4626/actions";
 const maxRedeemAmount = await maxRedeem(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -323,8 +323,8 @@ maxWithdraw(client, { address, owner });
 ```ts
 import { maxWithdraw } from "viem-erc4626/actions";
 const maxWithdrawAmount = await maxWithdraw(client, {
-  address: "0x12345678912345678912345678912345678912345",
-  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  address: "0x1234567891234567891234567891234567891234",
+  owner: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -346,9 +346,9 @@ mint(client, { address, shares, receiver });
 ```ts
 import { mint } from "viem-erc4626/actions";
 const hash = await mint(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   shares: BigInt("1000000000000000000"), // 1 share
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
 });
 ```
 
@@ -368,7 +368,7 @@ name(client, { address });
 ```ts
 import { name } from "viem-erc4626/actions";
 const tokenName = await name(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -389,7 +389,7 @@ previewDeposit(client, { address, assets });
 ```ts
 import { previewDeposit } from "viem-erc4626/actions";
 const expectedShares = await previewDeposit(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   assets: BigInt("1000000000000000000"), // 1 asset
 });
 ```
@@ -411,7 +411,7 @@ previewMint(client, { address, shares });
 ```ts
 import { previewMint } from "viem-erc4626/actions";
 const requiredAssets = await previewMint(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   shares: BigInt("1000000000000000000"), // 1 share
 });
 ```
@@ -433,7 +433,7 @@ previewRedeem(client, { address, shares });
 ```ts
 import { previewRedeem } from "viem-erc4626/actions";
 const expectedAssets = await previewRedeem(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   shares: BigInt("1000000000000000000"), // 1 share
 });
 ```
@@ -455,7 +455,7 @@ previewWithdraw(client, { address, assets });
 ```ts
 import { previewWithdraw } from "viem-erc4626/actions";
 const requiredShares = await previewWithdraw(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   assets: BigInt("1000000000000000000"), // 1 asset
 });
 ```
@@ -479,9 +479,9 @@ redeem(client, { address, shares, receiver, owner });
 ```ts
 import { redeem } from "viem-erc4626/actions";
 const hash = await redeem(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   shares: BigInt("1000000000000000000"), // 1 share
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
   owner: "0x1234567891234567891234567891234567891234",
 });
 ```
@@ -502,7 +502,7 @@ symbol(client, { address });
 ```ts
 import { symbol } from "viem-erc4626/actions";
 const tokenSymbol = await symbol(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -522,7 +522,7 @@ totalAssets(client, { address });
 ```ts
 import { totalAssets } from "viem-erc4626/actions";
 const totalAssetAmount = await totalAssets(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -542,7 +542,7 @@ totalSupply(client, { address });
 ```ts
 import { totalSupply } from "viem-erc4626/actions";
 const tokenTotalSupply = await totalSupply(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
 });
 ```
 
@@ -565,9 +565,9 @@ withdraw(client, { address, assets, receiver, owner });
 ```ts
 import { withdraw } from "viem-erc4626/actions";
 const hash = await withdraw(client, {
-  address: "0x12345678912345678912345678912345678912345",
+  address: "0x1234567891234567891234567891234567891234",
   assets: BigInt("1000000000000000000"), // 1 asset
-  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
   owner: "0x1234567891234567891234567891234567891234",
 });
 ```
