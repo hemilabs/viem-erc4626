@@ -100,9 +100,9 @@ describe("withdraw", function () {
 describe("encodeWithdrawData", function () {
   const validEncodeParameters = {
     assets: BigInt(1000),
-    owner: zeroAddress,
-    receiver: zeroAddress,
-  };
+    owner: "0x0000000000000000000000000000000000000001",
+    receiver: "0x0000000000000000000000000000000000000002",
+  } as const;
 
   it("should throw an error if assets is not a bigint", function () {
     const parameters = { ...validEncodeParameters, assets: 1000 };
