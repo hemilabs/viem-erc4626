@@ -7,6 +7,8 @@ import {
 } from "viem";
 import { writeContract } from "viem/actions";
 
+import { assertAddress, assertPositiveBigInt } from "../assert.js";
+
 type DepositParams = {
   assets: bigint;
   receiver: Address;
@@ -14,15 +16,8 @@ type DepositParams = {
 
 const assertDepositParams = function (parameters: DepositParams) {
   const { assets, receiver } = parameters;
-  if (typeof assets !== "bigint") {
-    throw new Error("Invalid assets");
-  }
-  if (!isAddress(receiver)) {
-    throw new Error("Invalid receiver address");
-  }
-  if (assets <= BigInt(0)) {
-    throw new Error("Invalid assets, must be greater than 0");
-  }
+  assertPositiveBigInt(assets, "assets");
+  assertAddress(receiver, "receiver");
 };
 
 export const deposit = async function (

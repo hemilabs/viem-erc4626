@@ -1,6 +1,8 @@
 import { type Address, Client, erc4626Abi, isAddress } from "viem";
 import { writeContract } from "viem/actions";
 
+import { assertAddress, assertPositiveBigInt } from "../assert.js";
+
 export const mint = async function (
   client: Client,
   parameters: {
@@ -16,15 +18,8 @@ export const mint = async function (
   if (!isAddress(address)) {
     throw new Error("Invalid address");
   }
-  if (typeof shares !== "bigint") {
-    throw new Error("Invalid shares");
-  }
-  if (!isAddress(receiver)) {
-    throw new Error("Invalid receiver address");
-  }
-  if (shares <= BigInt(0)) {
-    throw new Error("Invalid shares, must be greater than 0");
-  }
+  assertPositiveBigInt(shares, "shares");
+  assertAddress(receiver, "receiver");
 
   return writeContract(client, {
     abi: erc4626Abi,

@@ -23,5 +23,5 @@ export { previewWithdraw } from "../public/previewWithdraw.js";
 export { totalAssets } from "../public/totalAssets.js";
 export { deposit, encodeDepositData } from "../wallet/deposit.js";
 export { mint } from "../wallet/mint.js";
-export { redeem } from "../wallet/redeem.js";
+export { encodeRedeemData, redeem } from "../wallet/redeem.js";
 export { encodeWithdrawData, withdraw } from "../wallet/withdraw.js";
