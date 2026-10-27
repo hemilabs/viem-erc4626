@@ -1,14 +1,30 @@
-import { type Address, Client, erc4626Abi, isAddress } from "viem";
+import {
+  type Address,
+  Client,
+  encodeFunctionData,
+  erc4626Abi,
+  isAddress,
+} from "viem";
 import { writeContract } from "viem/actions";
+
+import { assertAddress, assertPositiveBigInt } from "../assert.js";
+
+type RedeemParams = {
+  owner: Address;
+  receiver: Address;
+  shares: bigint;
+};
+
+const assertRedeemParams = function (parameters: RedeemParams) {
+  const { owner, receiver, shares } = parameters;
+  assertPositiveBigInt(shares, "shares");
+  assertAddress(receiver, "receiver");
+  assertAddress(owner, "owner");
+};
 
 export const redeem = async function (
   client: Client,
-  parameters: {
-    address: Address;
-    owner: Address;
-    receiver: Address;
-    shares: bigint;
-  },
+  parameters: RedeemParams & { address: Address },
 ) {
   const { address, owner, receiver, shares } = parameters;
   if (!client.account) {
@@ -17,18 +33,7 @@ export const redeem = async function (
   if (!isAddress(address)) {
     throw new Error("Invalid address");
   }
-  if (typeof shares !== "bigint") {
-    throw new Error("Invalid shares");
-  }
-  if (!isAddress(receiver)) {
-    throw new Error("Invalid receiver address");
-  }
-  if (!isAddress(owner)) {
-    throw new Error("Invalid owner address");
-  }
-  if (shares <= BigInt(0)) {
-    throw new Error("Invalid shares, must be greater than 0");
-  }
+  assertRedeemParams(parameters);
 
   return writeContract(client, {
     abi: erc4626Abi,
@@ -36,6 +41,17 @@ export const redeem = async function (
     address,
     args: [shares, receiver, owner],
     chain: client.chain,
+    functionName: "redeem",
+  });
+};
+
+export const encodeRedeemData = function (parameters: RedeemParams) {
+  const { owner, receiver, shares } = parameters ?? {};
+  assertRedeemParams({ owner, receiver, shares });
+
+  return encodeFunctionData({
+    abi: erc4626Abi,
+    args: [shares, receiver, owner],
     functionName: "redeem",
   });
 };

@@ -217,6 +217,29 @@ const data = encodeDepositData({
 });
 ```
 
+### `encodeRedeemData`
+
+Returns the ABI-encoded call data for a [redeem](https://eips.ethereum.org/EIPS/eip-4626#redeem) without sending a transaction. Useful for batching, multicall, or building a transaction manually.
+
+```ts
+encodeRedeemData({ shares, receiver, owner });
+```
+
+- **shares**: `bigint` — Amount of shares to redeem (required, must be > 0)
+- **receiver**: `Address` — Address to receive the underlying assets (required)
+- **owner**: `Address` — Address that owns the vault shares (required)
+
+**Example:**
+
+```ts
+import { encodeRedeemData } from "viem-erc4626/actions";
+const data = encodeRedeemData({
+  shares: BigInt("1000000000000000000"), // 1 share
+  receiver: "0xabcdefabcdefabcdefabcdefabcdefabcdefabcd",
+  owner: "0x1234567891234567891234567891234567891234",
+});
+```
+
 ### `encodeWithdrawData`
 
 Returns the ABI-encoded call data for a [withdraw](https://eips.ethereum.org/EIPS/eip-4626#withdraw) without sending a transaction. Useful for batching, multicall, or building a transaction manually.
